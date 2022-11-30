@@ -52,7 +52,9 @@ Kemudian univariate analysis dilakukan pada satuan data untuk melihat bagaimana 
 Terakhir multivariate analysis dilakukan untuk melihat hubungan setiap fitur variabel dengan fitur target (charges). Pada fitur kategorikal menggunakan categorical plot dengan sumbu x sebagai nilai kategori dan sumbu y sebagai rata-rata dari nilai charges.
 
 ![Category 1](https://github.com/RTAgung/Machine-Learning-Terapan/blob/master/assets/submission_1/DU_MA_CAT_1.png)
+
 ![Category 2](https://github.com/RTAgung/Machine-Learning-Terapan/blob/master/assets/submission_1/DU_MA_CAT_2.png)
+
 ![Category 3](https://github.com/RTAgung/Machine-Learning-Terapan/blob/master/assets/submission_1/DU_MA_CAT_3.png)
 
 Kemudian pada fitur numerikal menggunakan scatter plot yang dihubungkan satu sama lain.
@@ -151,6 +153,7 @@ Kemudian berikut hasil scoring terhadap seluruh kombinasi parameter
 Selanjutnya dari kelima model machine learning tersebut akan dibandingkan bagaimana tingkat nilai mse yang dihasilkan. Berikut tabel dan visualisasi hasil perbandingannya.
 
 ![Evaluation 1](https://github.com/RTAgung/Machine-Learning-Terapan/blob/master/assets/submission_1/ML_EVAL_1.png)
+
 ![Evaluation 2](https://github.com/RTAgung/Machine-Learning-Terapan/blob/master/assets/submission_1/ML_EVAL_2.png)
 
 Dari hasil perbandingan kelima model tersebut, model dari KNN, Tensorflow, dan Boosting memiliki nilai evaluasi mse yang hampir sama, sedangkan SVM memiliki nilai mse yang sangat tinggi, dan Random Forest memiliki nilai mse yang sangat rendah pada data training namun pada data testing nilai mse yang diperoleh paling tinggi diantara model yang lain. Sehingga kandidat model terbaik yang akan digunakan yaitu pada model KNN, Tensorflow, dan Boosting. Namun secara kompleksitas algoritma KNN merupakan model yang ringan dan kompleksitas rendah, sehingga perhitungan model dapat dijalankan dengan cepat dan akurat. Maka dari itu kesimpulan yang diperoleh dari perbandingan terhadap lima metode tersebut, model KNN dipilih dan digunakan pada proyek ini.
