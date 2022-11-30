@@ -262,6 +262,6 @@ Dari hasil perbandingan kelima model tersebut, model dari KNN, Tensorflow, dan B
 ## Evaluation
 Tahapan terakhir yang perlu dilakukan adalah evaluasi model machine learning. Seperti yang sudah dijelaskan pada bagian-bagian sebelumnya bahwa proyek ini akan menghitung evaluasi model menggunakan mean squared error (mse). Mean Squared Error adalah Rata-rata Kesalahan kuadrat diantara nilai aktual dan nilai peramalan. Metode Mean Squared Error secara umum digunakan untuk mengecek estimasi berapa nilai kesalahan pada peramalan. Nilai Mean Squared Error yang rendah atau nilai mean squared error mendekati nol menunjukkan bahwa hasil peramalan sesuai dengan data aktual dan bisa dijadikan untuk perhitungan peramalan di periode mendatang. Berikut ini cara menghitung nilai mse dengan n sebagai jumlah data.
 
-$$ MSE = \frac{\sum_{t=1}^{n}\left ( actual-predict \right )^{2}}{n} $$
+$$ MSE = \frac{\sum_{t=1}^{n} \left ( actual_t-predict_t \right )}{n} $$
 
 Dari hasil pemodelan yang telah dilakukan sebelumnya, model KNN digunakan dalam proyek dengan tingkat nilai mse sebesar 113656.32 pada data training dan 115089.32 pada data testing. Dilihat dari nilai standar deviasi dari variabel target (charges) yaitu sebesar 12110.01 nilai mse pada model KNN bukanlah tinkat error  yang buruk, namun juga bukan tingkat error yang baik. Perolehan hasil evaluasi dari model yang telah dibangun tidak hanya bergantung pada model, namun juga memiliki pengaruh besar terhadap data yang digunakan. Sehingga pada proyek ini, hasil dari proses yang telah dilakukan sudah cukup baik.
