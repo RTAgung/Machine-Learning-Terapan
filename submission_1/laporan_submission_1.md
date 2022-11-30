@@ -109,7 +109,9 @@ Tahapan terakhir akan dilakukan proses standardization pada data numerikal yaitu
 Selanjutnya ketika data sudah siap untuk digunakan maka pengembangan model machine learning akan dilakukan. Proyek ini mengembangkan model machine learning sesuai dengan kasus yang dihadapi yaitu regresi. Terdapat lima model yang dikembangkan diantaranya K Nearest Neighbors, Random Forest, Ada Boost, Support Vector Machine, dan Neural Network Tensorflow. Selain mencari model yang terbaik diantara kelimanya, setiap model juga dilakukan hyperparameter tuning untuk mencari parameter terbaik pada setiap model. Hyperparameter tuning dilakukan menggunakan fungsi GridSearchCV dengan parameter scoring = 'neg_mean_squared_error'.
 
 ### K Nearest Neighbors
-Pada model ini tuning dilakukan terhadap parameter : 
+K Nearest Neighbors (KNN) adalah algoritma yang relatif sederhana dibandingkan dengan algoritma lain. Algoritma KNN menggunakan 'kesamaan fitur' untuk memprediksi nilai dari setiap data yang baru. Dengan kata lain, setiap data baru diberi nilai berdasarkan seberapa mirip titik tersebut dalam set pelatihan. KNN bekerja dengan membandingkan jarak satu sampel ke sampel pelatihan lain dengan memilih sejumlah k tetangga terdekat (dengan k adalah sebuah angka positif). 
+
+Pada model ini hyperparameter tuning dilakukan terhadap parameter : 
 - 'n_neighbors': [1, 3, 6, 10, 15, 21]
 
 Berdasarkan hasil pelatihan yang dilakukan menggunakan parameter tersebut,
@@ -129,7 +131,9 @@ Kemudian berikut hasil scoring terhadap seluruh kombinasi parameter
 
 
 ### Random Forest
-Pada model ini tuning dilakukan terhadap parameter : 
+Random forest merupakan salah satu model machine learning yang termasuk ke dalam kategori ensemble (group) learning. Apa itu model ensemble? Sederhananya, ia merupakan model prediksi yang terdiri dari beberapa model dan bekerja secara bersama-sama. Ide dibalik model ensemble adalah sekelompok model yang bekerja bersama menyelesaikan masalah. Sehingga, tingkat keberhasilan akan lebih tinggi dibanding model yang bekerja sendirian. Pada model ensemble, setiap model harus membuat prediksi secara independen. Kemudian, prediksi dari setiap model ensemble ini digabungkan untuk membuat prediksi akhir. 
+
+Pada model ini hyperparameter tuning dilakukan terhadap parameter : 
 - 'n_estimators': [30, 50, 100, 150, 200]
 - 'max_depth': [None, 16, 32, 64]
 
@@ -163,7 +167,9 @@ Kemudian berikut hasil scoring terhadap seluruh kombinasi parameter
 | -144633957.382563 | (15768635.009804) | {'max_depth': 64, 'n_estimators': 200}
 
 ### Ada Boost
-Pada model ini tuning dilakukan terhadap parameter : 
+Algoritma yang menggunakan teknik boosting bekerja dengan membangun model dari data latih. Kemudian membuat model kedua yang bertugas memperbaiki kesalahan dari model pertama. Model ditambahkan sampai data latih terprediksi dengan baik atau telah mencapai jumlah maksimum model untuk ditambahkan. Algoritma ini bertujuan untuk meningkatkan performa atau akurasi prediksi. Caranya adalah dengan menggabungkan beberapa model sederhana dan dianggap lemah (weak learners) sehingga membentuk suatu model yang kuat (strong ensemble learner). Pada proyek ini menggunakan metode adaptive boosting yaitu AdaBoost. AdaBoost bekerja dengan memeriksa apakah observasi yang dilakukan sudah benar? bobot yang lebih tinggi kemudian diberikan pada model yang salah sehingga mereka akan dimasukkan ke dalam tahapan selanjutnya. Proses iteratif ini berlanjut sampai model mencapai akurasi yang diinginkan.
+
+Pada model ini hyperparameter tuning dilakukan terhadap parameter : 
 - 'n_estimators': [15, 30, 50, 100]
 - 'learning_rate': [0.005, 0.05, 0.5, 1]
 
@@ -193,7 +199,9 @@ Kemudian berikut hasil scoring terhadap seluruh kombinasi parameter
 | -129972351.737216 | (9777662.853013) | {'learning_rate': 1, 'n_estimators': 100}
 
 ### Support Vector Machine
-Pada model ini tuning dilakukan terhadap parameter : 
+Algoritma Support Vector Machine merupakan salah satu algoritma yang termasuk dalam kategori Supervised Learning baik kasus klasifikasi maupun regresi, dalam proyek ini SVM digunakan dalam kasus regresi. Tujuan dasar dari algoritma SVM adalah menemukan garis keputusan yang paling sesuai. Dalam SVM, garis yang paling cocok adalah hyperplane yang memiliki jumlah poin maksimum. Tidak seperti model regresi lain yang mencoba meminimalkan kesalahan antara nilai aktual dan nilai prediksi, SVM mencoba menyesuaikan garis terbaik dalam nilai ambang batas (jarak antara hyperplane dan boundary line).
+
+Pada model ini hyperparameter tuning dilakukan terhadap parameter : 
 - 'kernel': ['rbf', 'sigmoid']
 - 'C': [1, 3, 6, 10, 15, 20]
 
@@ -219,7 +227,9 @@ Kemudian berikut hasil scoring terhadap seluruh kombinasi parameter
 | -152991528.472361 | (13349549.448385) | {'C': 20, 'kernel': 'sigmoid'}
 
 ### Neural Network Tensorflow
-Pada model ini tuning dilakukan terhadap parameter : 
+Neural Network adalah sebuah cabang dari kecerdasan buatan (artificial intelligence) yang cara kerjanya meniru cara kerja syaraf-syaraf otak manusia. Dengan cara ini, Neural Network memberikan program komputer sebuah kemampuan untuk bisa mengenali pola dan menyelesaikan berbagai masalah. Neural network meniru bagaimana neuron (sel saraf) saling mengirimkan sinyal. Neural network sejatinya melatih data agar bisa belajar dan meningkatkan akurasi seiring berjalannya waktu. Ketika algoritma yang mampu belajar ini sudah tersetel dengan baik akurasinya, ia kemudian bisa digunakan untuk mengklasifikasi klaster data dengan sangat cepat. Tiap neuron menerima input dan melakukan operasi dot dengan sebuah weight, menjumlahkannya (weighted sum) dan menambahkan bias. Hasil dari operasi ini akan dijadikan parameter dari activation function yang akan dijadikan output dari neuron tersebut.
+
+Pada model ini hyperparameter tuning dilakukan terhadap parameter : 
 - 'optimizer': ['RMSprop', 'Adam']
 - 'loss': ['mse', 'huber']
 - 'epochs': [50, 100, 150]
@@ -245,7 +255,12 @@ Kemudian berikut hasil scoring terhadap seluruh kombinasi parameter
 | -157236387.153332 | (17087097.572732) | {'epochs': 150, 'loss': 'huber', 'optimizer': 'RMSprop'}
 | -156973631.565901 | (16424942.878246) | {'epochs': 150, 'loss': 'huber', 'optimizer': 'Adam'}
 
-Selanjutnya dari kelima model machine learning tersebut akan dibandingkan bagaimana tingkat nilai mse yang dihasilkan. Berikut tabel dan visualisasi hasil perbandingannya.
+## Evaluation
+Tahapan terakhir yang perlu dilakukan adalah evaluasi model machine learning. Seperti yang sudah dijelaskan pada bagian-bagian sebelumnya bahwa proyek ini akan menghitung evaluasi model menggunakan mean squared error (mse). Mean Squared Error adalah Rata-rata Kesalahan kuadrat diantara nilai aktual dan nilai peramalan. Metode Mean Squared Error secara umum digunakan untuk mengecek estimasi berapa nilai kesalahan pada peramalan. Nilai Mean Squared Error yang rendah atau nilai mean squared error mendekati nol menunjukkan bahwa hasil peramalan sesuai dengan data aktual dan bisa dijadikan untuk perhitungan peramalan di periode mendatang. Berikut ini cara menghitung nilai mse dengan n sebagai jumlah data.
+
+$$ MSE = \frac{\sum_{t=1}^{n} \left ( actual_t-predict_t \right )}{n} $$
+
+Lima model machine learning yang telah dilatih sebelumnya akan dibandingkan bagaimana tingkat nilai mse yang dihasilkan. Berikut tabel dan visualisasi hasil perbandingannya.
 
 |      model |         train |          test |
 |-----------:|--------------:|--------------:|
@@ -257,11 +272,4 @@ Selanjutnya dari kelima model machine learning tersebut akan dibandingkan bagaim
 
 ![Evaluation 2](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_1/ML_EVAL_2.png)
 
-Dari hasil perbandingan kelima model tersebut, model dari KNN, Tensorflow, dan Boosting memiliki nilai evaluasi mse yang hampir sama, sedangkan SVM memiliki nilai mse yang sangat tinggi, dan Random Forest memiliki nilai mse yang sangat rendah pada data training namun pada data testing nilai mse yang diperoleh paling tinggi diantara model yang lain. Sehingga kandidat model terbaik yang akan digunakan yaitu pada model KNN, Tensorflow, dan Boosting. Namun secara kompleksitas algoritma KNN merupakan model yang ringan dan kompleksitas rendah, sehingga perhitungan model dapat dijalankan dengan cepat dan akurat. Maka dari itu kesimpulan yang diperoleh dari perbandingan terhadap lima metode tersebut, model KNN dipilih dan digunakan pada proyek ini.
-
-## Evaluation
-Tahapan terakhir yang perlu dilakukan adalah evaluasi model machine learning. Seperti yang sudah dijelaskan pada bagian-bagian sebelumnya bahwa proyek ini akan menghitung evaluasi model menggunakan mean squared error (mse). Mean Squared Error adalah Rata-rata Kesalahan kuadrat diantara nilai aktual dan nilai peramalan. Metode Mean Squared Error secara umum digunakan untuk mengecek estimasi berapa nilai kesalahan pada peramalan. Nilai Mean Squared Error yang rendah atau nilai mean squared error mendekati nol menunjukkan bahwa hasil peramalan sesuai dengan data aktual dan bisa dijadikan untuk perhitungan peramalan di periode mendatang. Berikut ini cara menghitung nilai mse dengan n sebagai jumlah data.
-
-$$ MSE = \frac{\sum_{t=1}^{n} \left ( actual_t-predict_t \right )}{n} $$
-
-Dari hasil pemodelan yang telah dilakukan sebelumnya, model KNN digunakan dalam proyek dengan tingkat nilai mse sebesar 113656.32 pada data training dan 115089.32 pada data testing. Dilihat dari nilai standar deviasi dari variabel target (charges) yaitu sebesar 12110.01 nilai mse pada model KNN bukanlah tinkat error  yang buruk, namun juga bukan tingkat error yang baik. Perolehan hasil evaluasi dari model yang telah dibangun tidak hanya bergantung pada model, namun juga memiliki pengaruh besar terhadap data yang digunakan. Sehingga pada proyek ini, hasil dari proses yang telah dilakukan sudah cukup baik.
+Dari hasil perbandingan kelima model tersebut, model dari KNN, Tensorflow, dan Boosting memiliki nilai evaluasi mse yang hampir sama, sedangkan SVM memiliki nilai mse yang sangat tinggi, dan Random Forest memiliki nilai mse yang sangat rendah pada data training namun pada data testing nilai mse yang diperoleh paling tinggi diantara model yang lain. Sehingga kandidat model terbaik yang akan digunakan yaitu pada model KNN, Tensorflow, dan Boosting. Namun secara kompleksitas algoritma KNN merupakan model yang ringan dan kompleksitas rendah, sehingga perhitungan model dapat dijalankan dengan cepat dan akurat. Maka dari itu kesimpulan yang diperoleh dari perbandingan terhadap lima metode tersebut, model KNN dipilih dan digunakan pada proyek ini. Model KNN yang digunakan dalam proyek memiliki tingkat nilai mse sebesar 113656.32 pada data training dan 115089.32 pada data testing. Dilihat dari nilai standar deviasi dari variabel target (charges) yaitu sebesar 12110.01 nilai mse pada model KNN bukanlah tingkat error yang buruk, namun juga bukan tingkat error yang baik. Perolehan hasil evaluasi dari model yang telah dibangun tidak hanya bergantung pada model, namun juga memiliki pengaruh besar terhadap data yang digunakan. Sehingga pada proyek ini, hasil dari proses yang telah dilakukan sudah cukup baik.
