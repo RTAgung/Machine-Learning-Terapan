@@ -39,7 +39,7 @@ Pada bagian ini dilakukan beberapa proses analisis untuk melihat bagaimana kondi
 
 Kemudian pencarian outlier dilakukan dengan melihat distribusi data menggunakan boxplot pada data numerik seperti berikut.
 
-![Box Plot](/assets/DU_boxplot.png)
+![Box Plot](/assets/submission_1/DU_boxplot.png)
 
 Terlihat pada fitur BMI terdapat beberapa data yang outlier, sehingga diterapkan penghapusan outlier menggunakan metode IQR, alhasil terdapat 9 data yang terdeteksi sebagai outlier seperti berikut. 
 
