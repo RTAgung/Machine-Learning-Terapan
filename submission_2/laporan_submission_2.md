@@ -4,10 +4,6 @@ Dengan perkembangan teknologi, bermacam-macam bentuk hiburan dalam bentuk film, 
 
 Berdasarkan pada masalah tersebut, maka proyek ini dilakukan untuk memberi rekomendasi anime kepada user berdasarkan rating user terhadap anime sebelumnya. Diharapkan dengan memberikan rekomendasi anime yang sesuai dapat memudahkan dan mempercepat proses pencarian anime bagi para peminatnya.
 
-### Referensi
-- [Anime Industry Report 2019](https://namafar.ir/wp-content/uploads/2022/02/2019_Anime_ind_rpt_summary_enr.pdf)
-- [Rekomendasi Anime dengan Latent Semantic Indexing Berbasis Sinopsis Genre](https://www.researchgate.net/publication/274712918_Rekomendasi_Anime_dengan_Latent_Semantic_Indexing_Berbasis_Sinopsis_Genre)
-
 ## Business Understanding
 ### Problem Statements
 Berdasarkan kondisi yang telah diuraikan sebelumnya, berikut permasalahan yang diangkat:
@@ -283,3 +279,7 @@ Selanjutnya dari 10 anime yang direkomendasikan, dapat dilihat genre anime yang 
 ![Top Recommendation Genre](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/EV_TRG.png)
 
 Dari visualisasi diatas terlihat bahwa anime yang direkomendasikan kebanyakan memiliki genre action, shounen, comedy, historical, dan sci-fi. Jika dibandingkan dengan genre anime yang disukai user, terdapat kesamaan dari hasil rekomendasi yaitu genre comedy dan sci-fi. Hasil tersebut dapat membuktikan bahwa prediksi yang dihasilkan dari sistem rekomendasi sudah cukup baik untuk digunakan oleh user.
+
+## Referensi
+- [Anime Industry Report 2019](https://namafar.ir/wp-content/uploads/2022/02/2019_Anime_ind_rpt_summary_enr.pdf)
+- [Rekomendasi Anime dengan Latent Semantic Indexing Berbasis Sinopsis Genre](https://www.researchgate.net/publication/274712918_Rekomendasi_Anime_dengan_Latent_Semantic_Indexing_Berbasis_Sinopsis_Genre)
