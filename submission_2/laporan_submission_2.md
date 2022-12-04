@@ -38,7 +38,7 @@ Pada bagian ini dilakukan beberapa proses analisis (seperti cek data null, cek d
 ### `anime.csv`
 Pada dataset ini terdapat 34 kolom dan 17.562 baris data. Dataset ini berisi informasi umum pada setiap anime seperti name, genre, premiered, studio, dll. Beberapa data yang penting dalam proyek ini yaitu judul anime dan genre anime. Pada bagian genre dilakukan analisis lebih lanjut dengan mengambil jumlah seluruh anime terhadap genre tertentu, terdapat 44 genre berbeda pada seluruh anime yang ada, kemudian data jumlah anime terhadap diurutkan berdasarkan terbesar ke terkecil. Berikut ini diagram hasil jumlah anime setiap genre.
 
-![Top Genre]()
+![Top Genre](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/DU_TG.png)
 
 Jika dilihat dari data tersebut berikut tabel 10 top genre anime terbanyak.
 
@@ -62,7 +62,7 @@ Pada dataset ini terdapat 5 kolom dan 109.224.747 baris data. Dataset ini berisi
 
 Pada nilai rating (0 - 10) dilakukan analisis terhadap berapa jumlah user yang memberikan rating tertentu terhadap seluruh anime. Berikut hasil pengurutan jumlah rating 0 - 10, rating 0 adalah nilai ketika user tidak memberikan rating terhadap anime.
 
-![Top Rating]()
+![Top Rating](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/DU_TR.png)
 
 Jika dilihat dari data tersebut berikut tabel top jumlah rating user terbanyak.
 
@@ -94,7 +94,7 @@ Kemudian pada watching_status dilakukan analisis terhadap jumlah status user ket
 
 Namun dari 5 status tersebut ketika dilakukan cek unique data ternyata terdapat data yang salah input, yaitu terdapat nilai 5, 33, dan 55. Sehingga baris data yang terdapat pada nilai yang salah tersebut harus dihapus. Kemudian data yang telah dibersihkan dihitung jumlah user pada setiap watching_status. Berikut ini diagram hasil jumlah user setiap watching_status.
 
-![Top Status]()
+![Top Status](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/DU_TS.png)
 
 Jika dilihat dari data tersebut berikut tabel top jumlah watching_status user terbanyak.
 
@@ -112,7 +112,7 @@ Dari hasil tersebut dapat dilihat bahwa watching_status terbanyak bernilai 2, ya
 ### `rating_complete.csv`
 Pada dataset ini terdapat 3 kolom dan 57.633.278 baris data yang berisi daftar seluruh anime yang diberi rating oleh user dengan status user telah selesai menonton anime tersebut dan memberikan rating 1 - 10. Pada dataset ini terdapat 310.059 user memberikan rating terhadap 16.872 judul anime. Analisis dilakukan pada dataset ini dengan mencari nilai rating terbanyak yang diberikan oleh user. Berikut hasil pengurutan jumlah rating 1 - 10.
 
-![Top Rating Complete]()
+![Top Rating Complete](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/DU_TRC.png)
 
 Jika dilihat dari data tersebut berikut tabel top jumlah rating user terbanyak.
 
@@ -133,6 +133,7 @@ Dari hasil data tersebut dapat dilihat bahwa rating yang paling banyak diberikan
 
 ## Data Preparation
 Setelah analisis dilakukan, pada bagian ini hal pertama yang dilakukan adalah memilih dataset yang akan digunakan. Data yang dipilih untuk digunakan yaitu pada `anime.csv` (kolom: "MAL_ID", "Name", "Score", "Genres", "Premiered") dimasukan kedalam variabel `df_anime` sebagai tempat seluruh detail anime dan `rating_complete.csv` (kolom: "user_id", "anime_id", "rating") dimasukan kedalam variabel `df_rating` sebagai nilai rating yang diberikan oleh user. Kemudian kolom pada data `df_anime` dilakukan rename agar format nama menjadi sama rata. Berikut contoh data tersebut.
+
 Dataset `df_anime`
 | index | anime_id |                            name | score |                                            genres |   premiered |
 |------:|---------:|--------------------------------:|------:|--------------------------------------------------:|------------:|
@@ -229,13 +230,13 @@ Dari hasil modelling yang telah dilakukan, terdapat empat model yang dihasilkan 
 
 Berikut ini adalah perbandingan evaluasi RMSE dan Loss dari hasil training per epoch yang telah dilakukan pada setiap model.
 
-![Evaluation Epoch RMSE]()
+![Evaluation Epoch RMSE](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/EV_ERM.png)
 
-![Evaluation Epoch Loss]()
+![Evaluation Epoch Loss](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/EV_ELS.png)
 
 Selanjutnya adalah visualisasi dari perbadingan rmse dan loss dari hasil training pada setiap model menggunakan bar chart.
 
-![Evaluation Model]()
+![Evaluation Model](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/EV_COM.png)
 
 Dari hasil perbandingan performa model tersebut, model_3 dengan optimizer RMSprop dan emb_size 50 memperoleh tingkat RMSE yang paling rendah pada data training maupun data testing dan pada tingkat loss model memiliki nilai yang relatif cukup rendah daripada model yang lain. Sehingga pada proyek ini model yang akan digunakan adalah model_3.
 
@@ -258,7 +259,7 @@ Pada bagian ini model akan diuji secara langsung dengan menginput satu user data
 
 Dari 10 anime yang telah ditonton, dapat dilihat bagaimana genre yang paling disukai dengan mencari jumlah genre setiap anime tersebut. Berikut ini hasil visualisasi top 10 genre anime yang disukai user.
 
-![Top User Genre]()
+![Top User Genre](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/EV_TUG.png)
 
 Dari visualisasi diatas terlihat bahwa user tersebut sangat menyukai anime dengan genre action, mystery, sci-fi, supernatural, dan horror.
 
@@ -279,6 +280,6 @@ Kemudian sistem rekomendasi akan melakukan prediksi terhadap user tersebut denga
 
 Selanjutnya dari 10 anime yang direkomendasikan, dapat dilihat genre anime yang direkomendasi. Berikut ini hasil visualisasi top 10 genre anime rekomendasi.
 
-![Top Recommendation Genre]()
+![Top Recommendation Genre](https://raw.githubusercontent.com/RTAgung/Machine-Learning-Terapan/master/assets/submission_2/EV_TRG.png)
 
 Dari visualisasi diatas terlihat bahwa anime yang direkomendasikan kebanyakan memiliki genre action, shounen, comedy, historical, dan sci-fi. Jika dibandingkan dengan genre anime yang disukai user, terdapat kesamaan dari hasil rekomendasi yaitu genre comedy dan sci-fi. Hasil tersebut dapat membuktikan bahwa prediksi yang dihasilkan dari sistem rekomendasi sudah cukup baik untuk digunakan oleh user.
