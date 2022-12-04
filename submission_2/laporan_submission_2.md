@@ -159,26 +159,10 @@ Dengan jumlah dataset yang sangat besar, model machine learning akan sangat suli
 - Jumlah user yang digunakan: 1000
 - Jumlah rating user yang digunakan: 185054
 
-Kemudian dari data `df_rating` terlihat bahwa hanya 8799 anime yang digunakan, sehingga pada data anime dapat dihapus beberapa baris yang tidak digunakan pada data `df_rating` dengan cara merge data seperti berikut.
-
-```python
-df_merge2 = pd.merge(df_anime[['anime_id', 'name']], df_rating, on='anime_id', how='left')
-unused_anime_id = df_merge2[df_merge2.rating.isna()].anime_id.unique().tolist()
-df_anime = df_anime[~(df_anime.anime_id.isin(unused_anime_id))]
-```
+Kemudian dari data `df_rating` terlihat bahwa hanya 8799 anime yang digunakan, sehingga pada data anime dapat dihapus beberapa baris yang tidak digunakan pada data `df_rating` dengan cara merge data kemudian menghapus baris yang memiliki nilai Null di kolom rating.
 
 ### Save & Load Data
-Data yang telah dipilih dan direduksi, selanjutnya perlu disimpan agar dapat langsung digunakan kembali tanpa harus load data yang besar di awal. Proses save & load data dapat dilakukan dengan mudah seperti berikut.
-
-```python
-# save
-df_rating.to_csv('final_rating.csv', index=False)
-df_anime.to_csv('final_anime.csv', index=False)
-
-# load
-df_rating = pd.read_csv('final_rating.csv')
-df_anime = pd.read_csv('final_anime.csv')
-```
+Data yang telah dipilih dan direduksi, selanjutnya perlu disimpan agar dapat langsung digunakan kembali tanpa harus load data yang besar di awal. Proses save & load data dapat dilakukan dengan mudah menggunakan library dari Pandas.
 
 ### Encoding Data
 Encoding data dilakukan untuk mengubah fitur user_id dan anime_id menjadi indeks integer yang terurut, perlakuan tersebut diperlukan sesuai kebutuhan model. Berikut tabel hasil encoding yang dilakukan.
